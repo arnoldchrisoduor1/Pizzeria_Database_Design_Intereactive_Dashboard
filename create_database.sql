@@ -107,6 +107,30 @@ CREATE TABLE `staff` (
     )
 );
 
+
+ALTER TABLE `orders` ADD INDEX `idx_cust_id` (`cust_id`);
+ALTER TABLE `orders` ADD INDEX `idx_add_id` (`add_id`);
+ALTER TABLE `orders` ADD INDEX `idx_item_id` (`item_id`);
+
+
+ALTER TABLE `recipe` ADD INDEX `idx_ing_id` (`ing_id`);
+
+
+ALTER TABLE `item` ADD UNIQUE INDEX `idx_sku` (`sku`);
+
+
+ALTER TABLE `ingredient` ADD UNIQUE INDEX `idx_ing_id` (`ing_id`);
+
+
+ALTER TABLE `orders` ADD INDEX `idx_created_at` (`created_at`);
+
+
+ALTER TABLE `staff` ADD UNIQUE INDEX `idx_staff_id` (`staff_id`);
+
+ALTER TABLE `rota` ADD INDEX `idx_shift_id` (`shift_id`);
+
+
+
 ALTER TABLE `customers` ADD CONSTRAINT `fk_customers_cust_id` FOREIGN KEY(`cust_id`)
 REFERENCES `orders` (`cust_id`);
 
